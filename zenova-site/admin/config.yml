@@ -1,0 +1,33 @@
+backend:
+  name: git-gateway
+  branch: main
+media_folder: "uploads"
+public_folder: "/uploads"
+collections:
+  - name: "content"
+    label: "Website Content"
+    files:
+      - name: "portfolio"
+        label: "Portfolio (upload images)"
+        file: "content/portfolio.json"
+        fields:
+          - label: "Projects"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Category", name: "category", widget: "select", options: ["Graphic Designing","AI UGC Ads","Logo Design","Social Media","Vector Image","Packaging"]}
+              - {label: "Image", name: "media", widget: "image"}
+      - name: "videos"
+        label: "Videos (upload videos)"
+        file: "content/videos.json"
+        fields:
+          - label: "Videos"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Category", name: "category", widget: "select", options: ["AI UGC Ads","Video Editing","Social Media","Other"]}
+              - {label: "Video file", name: "media", widget: "file"}
